@@ -26,5 +26,5 @@ export const siteConfig = {
     leetcode: 'https://leetcode.com/mahi',         // ← update with your LC handle
     email: 'mailto:ahnafraismahi@gmail.com',
   },
-  resumeUrl: '/resume.pdf', // place your resume PDF in /public/resume.pdf
+  resumeUrl: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/resume.pdf`,
 }

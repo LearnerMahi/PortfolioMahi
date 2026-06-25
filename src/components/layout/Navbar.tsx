@@ -45,10 +45,10 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-2">
             <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-sm font-bold text-white shadow-lg">
-              AM
+              ARM
             </span>
             <span className="hidden sm:block font-semibold text-[#e6edf3] group-hover:text-accent-blue transition-colors">
-              Ahnaf Mahi
+              Ahnaf Rais Mahi
             </span>
           </Link>
 

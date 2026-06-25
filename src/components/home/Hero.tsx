@@ -172,7 +172,7 @@ export function Hero() {
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl bg-bg-card border border-border overflow-hidden">
                 {/* Place your photo at /public/profile.jpg */}
                 <img
-                  src="/profile.jpg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/profile.jpg`}
                   alt="Ahnaf Rais Mahi"
                   className="absolute inset-0 w-full h-full object-cover object-top"
                   onError={(e) => {
