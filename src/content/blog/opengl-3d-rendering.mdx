@@ -1,0 +1,69 @@
+---
+title: "Building a 3D Campus in OpenGL 3.3 from Scratch"
+description: "What I learned building a real-time 3D visualization of KUET campus — from zero OpenGL knowledge to dynamic lighting, NPC pathfinding, and day-night cycles."
+date: "2024-08-20"
+tags: ["OpenGL", "C++", "3D Graphics", "GLSL", "Game Dev"]
+---
+
+# Building a 3D Campus in OpenGL 3.3 from Scratch
+
+For our graphics course project, my team and I decided to go beyond the usual spinning cube demo. We built a **full 3D walkable recreation of the KUET campus** using OpenGL 3.3 — from scratch, in C++. No game engine. No magic abstraction layer.
+
+This is what I learned.
+
+## Why OpenGL 3.3 (Not a Game Engine)?
+
+The honest answer: it was a coursework requirement. The deeper answer: it forced us to understand *everything* — vertex buffers, shader compilation, matrix math, texture binding. When you use a game engine, you trust the abstraction. When you write the abstraction, you understand graphics at a level that no tutorial fully prepares you for.
+
+## The Architecture
+
+Our scene graph has three main layers:
+
+```
+SceneManager
+├── Renderer (VAO/VBO management, draw calls)
+├── ShaderProgram (GLSL compilation, uniform binding)
+├── Camera (view/projection matrices, WASD + mouse)
+└── Scene
+    ├── StaticMesh (buildings, terrain)
+    ├── DynamicEntity (NPCs, interactive objects)
+    └── Skybox (HDR cubemap)
+```
+
+## Lighting: Where It Gets Real
+
+The single biggest visual upgrade was implementing a **Phong lighting model** with diffuse + specular + ambient components, and then upgrading it to **PBR (Physically Based Rendering)** for the final version.
+
+The key insight: light color × object color = perceived color. Get this wrong and everything looks like it's made of plastic.
+
+```glsl
+// Fragment shader — simplified Phong
+vec3 ambient = ambientStrength * lightColor;
+
+vec3 norm = normalize(Normal);
+vec3 lightDir = normalize(lightPos - FragPos);
+float diff = max(dot(norm, lightDir), 0.0);
+vec3 diffuse = diff * lightColor;
+
+vec3 result = (ambient + diffuse) * objectColor;
+FragColor = vec4(result, 1.0);
+```
+
+## The Day-Night Cycle
+
+The day-night system simulates sun position using a time uniform passed from the CPU side. The sun angle rotates from 0 to 360 degrees, and the light color shifts from warm orange (sunrise/sunset) to cool white (midday) to near-black (night).
+
+The effect is surprisingly convincing for minimal code.
+
+## NPC Pathfinding
+
+NPCs navigate campus walkways using a simple **A\*** implementation on a 2D grid overlaid on the campus layout. Each NPC has a goal node and recalculates every few seconds. It's not AAA, but it adds life to the scene.
+
+## Key Takeaways
+
+- **Matrix math is everything** — understand model/view/projection before anything else
+- **Shader debugging is painful** — use uniform color outputs to isolate problems
+- **Memory management in C++ graphics is unforgiving** — always check for leaks with VAO/VBO unbinding
+- **The first time lighting works, it feels like magic**
+
+The project ended up achieving 60+ FPS on mid-range hardware and earned us top marks in the course. More importantly, it gave me a deep foundation in real-time rendering that I couldn't have gotten any other way.
