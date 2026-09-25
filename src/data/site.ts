@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Ahnaf Rais Mahi',
-  shortName: 'ARM',
+  shortName: 'ARM~Bahubali',
   title: 'CS Engineer & Developer',
   description:
     'Computer Science & Engineering student at KUET. Building Android apps, 3D graphics experiences, and researching cybersecurity. Passionate about problem solving and competitive programming.',
@@ -10,13 +10,14 @@ export const siteConfig = {
   university: 'Khulna University of Engineering & Technology',
   universityShort: 'KUET',
   degree: 'BSc. Computer Science & Engineering',
-  cgpa: '3.35',
+  cgpa: '3.37',
   roles: [
     'Android Developer',
     'OpenGL Graphics Engineer',
     'Competitive Programmer',
     'Cybersecurity Researcher',
-    'CS Student @ KUET',
+    'Django Developer',
+    'CS Graduate @ KUET',
   ],
   social: {
     github: 'https://github.com/ahnafraismahi',   // ← update with your actual GitHub URL
