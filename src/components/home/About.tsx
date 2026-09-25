@@ -4,7 +4,7 @@ import { FiAward, FiCode, FiCpu, FiBookOpen } from 'react-icons/fi'
 
 const stats = [
   { icon: FiCode, value: '204+', label: 'Problems Solved', sub: 'CF + LeetCode' },
-  { icon: FiAward, value: '3.35', label: 'CGPA', sub: 'Out of 4.00' },
+  { icon: FiAward, value: '3.37', label: 'CGPA', sub: 'Out of 4.00' },
   { icon: FiCpu, value: '3+', label: 'Major Projects', sub: 'Android · OpenGL · ML' },
   { icon: FiBookOpen, value: '2026', label: 'Graduating', sub: 'BSc. CSE · KUET' },
 ]

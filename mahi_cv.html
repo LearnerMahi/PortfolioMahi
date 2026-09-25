@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahnaf Rais Mahi — CV</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #fff;
+    padding: 32px 36px 24px;
+    border-bottom: 2px solid #e8ecf0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .header-left { flex: 1; }
+
+  .header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #0d0d1a;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+  }
+
+  .header .tagline {
+    color: #1558d6;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 0 12px;
+  }
+
+  .header .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+    color: #444;
+  }
+
+  .header .contacts span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .header .contacts svg {
+    flex-shrink: 0;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #1558d6;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── TWO-COLUMN BODY ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 0;
+  }
+
+  .col-left {
+    padding: 28px 32px 36px 36px;
+    border-right: 1px solid #e8ecf0;
+  }
+
+  .col-right {
+    padding: 28px 28px 36px 28px;
+    background: #fafbfd;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #0d0d1a;
+    border-bottom: 2px solid #1558d6;
+    padding-bottom: 5px;
+    margin-bottom: 16px;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f2f5;
+  }
+
+  .edu-entry:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .edu-degree {
+    font-weight: 700;
+    font-size: 13px;
+    color: #0d0d1a;
+  }
+
+  .edu-institution {
+    font-weight: 600;
+    color: #1558d6;
+    font-size: 12.5px;
+    margin: 2px 0;
+  }
+
+  .edu-meta {
+    font-size: 11.5px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 3px;
+  }
+
+  .edu-note {
+    font-size: 11.5px;
+    color: #555;
+    margin-top: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .edu-note::before { content: "•"; color: #1558d6; }
+
+  .gpa-box {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .gpa-label {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .gpa-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1558d6;
+    line-height: 1.1;
+  }
+
+  .gpa-max {
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  /* ── PROJECTS ── */
+  .project-entry {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f2f5;
+  }
+
+  .project-entry:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .project-title {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #0d0d1a;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1558d6;
+    text-decoration: none;
+    border: 1px solid #c5d5f5;
+    border-radius: 4px;
+    padding: 1px 7px;
+    flex-shrink: 0;
+  }
+
+  .project-link:hover { background: #e8eef8; }
+
+  .project-tags {
+    font-size: 11px;
+    color: #1558d6;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .project-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* ── SKILLS ── */
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1558d6;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .chip {
+    background: #e8eef8;
+    color: #1558d6;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+
+  .chip.dark {
+    background: #1558d6;
+    color: #fff;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .lang-name { font-weight: 600; font-size: 12.5px; }
+  .lang-level { font-size: 11px; color: #888; }
+
+  .dots { display: flex; gap: 4px; }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot.filled { background: #1558d6; }
+  .dot.empty { background: #d0d8e8; }
+
+  /* ── AWARDS ── */
+  .award-entry {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .award-icon {
+    width: 28px;
+    height: 28px;
+    background: #fff3cd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .award-title { font-weight: 700; font-size: 12.5px; }
+  .award-result { font-size: 11.5px; color: #555; }
+
+  /* ── CUSTOM / THESIS ── */
+  .custom-entry {
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 3px solid #1558d6;
+  }
+
+  .custom-label {
+    font-size: 10px;
+    color: #1558d6;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .custom-title { font-weight: 700; font-size: 12.5px; }
+  .custom-desc { font-size: 11.5px; color: #555; margin-top: 2px; line-height: 1.5; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { max-width: 100%; }
+    .col-right { background: #fafbfd !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Ahnaf Rais Mahi</h1>
+      <div class="tagline">Computer Science &amp; Engineering Graduate · KUET · Class of 2026</div>
+      <div class="contacts">
+        <span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1558d6" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +8801739061577
+        </span>
+        <span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1558d6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          ahnafraismahi@gmail.com
+        </span>
+        <span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1558d6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Nawabganj Sadar, Chapai Nawabganj
+        </span>
+      </div>
+    </div>
+    <div class="avatar">AR</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-left">
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-entry">
+          <div>
+            <div class="edu-degree">BSc. (Engr.) Computer Science and Engineering</div>
+            <div class="edu-institution">Khulna University of Engineering &amp; Technology (KUET)</div>
+            <div class="edu-meta">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2022 – 2026
+            </div>
+            <div class="edu-note">After 4th year 1st Semester</div>
+          </div>
+          <div class="gpa-box">
+            <div class="gpa-label">CGPA</div>
+            <div class="gpa-value">3.35</div>
+            <div class="gpa-max">/ 4.00</div>
+          </div>
+        </div>
+
+        <div class="edu-entry">
+          <div>
+            <div class="edu-degree">Higher Secondary School Certificate (HSC)</div>
+            <div class="edu-institution">Nawabganj Govt College, Chapai Nawabganj</div>
+            <div class="edu-meta">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2018 – 2020
+            </div>
+          </div>
+          <div class="gpa-box">
+            <div class="gpa-label">GPA</div>
+            <div class="gpa-value">5.00</div>
+            <div class="gpa-max">/ 5.00</div>
+          </div>
+        </div>
+
+        <div class="edu-entry">
+          <div>
+            <div class="edu-degree">Secondary School Certificate (SSC)</div>
+            <div class="edu-institution">Harimohan Government High School, Chapai Nawabganj</div>
+            <div class="edu-meta">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2016 – 2018
+            </div>
+            <div class="edu-note">General Stipend</div>
+          </div>
+          <div class="gpa-box">
+            <div class="gpa-label">GPA</div>
+            <div class="gpa-value">5.00</div>
+            <div class="gpa-max">/ 5.00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-title">Projects</div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            Malicious Website Detection <span style="font-weight:400;font-size:11px;color:#888;">(Thesis · In Progress)</span>
+          </div>
+          <div class="project-tags">Python · Machine Learning · Graph Neural Networks · Cybersecurity · Linux</div>
+          <div class="project-desc">
+            Final-year thesis detecting malicious websites via system provenance graph analysis. Captures OS-level events (processes, files, network connections) as directed acyclic graphs using the Linux audit framework, extracts graph-level features, and classifies threats with Graph Neural Networks — identifying attacks that bypass traditional URL/content filters.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            Study Nest
+            <a class="project-link" href="https://github.com/ahnafraismahi/study-nest" target="_blank">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+          </div>
+          <div class="project-tags">Java · Android SDK · Firebase · ExoPlayer · Material Design 3</div>
+          <div class="project-desc">
+            Collaborative Android e-learning platform for students and teachers. Features course creation, video upload &amp; streaming (ExoPlayer), AI chatbot, real-time messaging (Firebase Realtime DB), push notifications, and Firebase Authentication. Led the media player and chatbot integration modules.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            Virtual Campus Tour — KUET
+            <a class="project-link" href="https://github.com/ahnafraismahi/virtual-campus-tour" target="_blank">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+          </div>
+          <div class="project-tags">C++ · OpenGL 3.3 · GLSL · GLFW · GLAD · Assimp</div>
+          <div class="project-desc">
+            Full 3D real-time rendering of KUET campus built from scratch. Features PBR lighting, dynamic day-night cycle, shadow mapping, HDR cubemap skybox, interactive NPCs with pathfinding, first-person camera with collision detection, and rigid body physics simulation. Achieves 60+ FPS on mid-range hardware.
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            Personal Portfolio Website
+            <a class="project-link" href="https://ahnafraismahi.github.io/portfolio" target="_blank">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live
+            </a>
+          </div>
+          <div class="project-tags">Next.js 14 · TypeScript · Tailwind CSS · GitHub Pages</div>
+          <div class="project-desc">
+            Developer portfolio built with Next.js 14 App Router and TypeScript. Features dynamic project and blog pages with markdown support, animated UI components, and a dark-themed responsive design. Deployed via GitHub Actions to GitHub Pages with static export configuration.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-right">
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title">Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Programming Languages</div>
+          <div class="skill-chips">
+            <span class="chip dark">C++</span>
+            <span class="chip dark">Java</span>
+            <span class="chip dark">Python</span>
+            <span class="chip">Swift</span>
+            <span class="chip">C</span>
+            <span class="chip">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Mobile &amp; Framework</div>
+          <div class="skill-chips">
+            <span class="chip">Android SDK</span>
+            <span class="chip">iOS (SwiftUI)</span>
+            <span class="chip">Material Design 3</span>
+            <span class="chip">ExoPlayer</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Graphics &amp; Game Dev</div>
+          <div class="skill-chips">
+            <span class="chip">OpenGL 3.3</span>
+            <span class="chip">GLSL</span>
+            <span class="chip">GLFW</span>
+            <span class="chip">Assimp</span>
+            <span class="chip">Godot Engine</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Database</div>
+          <div class="skill-chips">
+            <span class="chip">Firebase Firestore</span>
+            <span class="chip">Realtime DB</span>
+            <span class="chip">Oracle DB</span>
+            <span class="chip">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Tools</div>
+          <div class="skill-chips">
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">Linux</span>
+            <span class="chip">LaTeX</span>
+            <span class="chip">Android Studio</span>
+            <span class="chip">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="lang-entry">
+          <div>
+            <div class="lang-name">Bangla</div>
+            <div class="lang-level">Native</div>
+          </div>
+          <div class="dots">
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+          </div>
+        </div>
+        <div class="lang-entry">
+          <div>
+            <div class="lang-name">English</div>
+            <div class="lang-level">Proficient</div>
+          </div>
+          <div class="dots">
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot filled"></div>
+            <div class="dot empty"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWARDS -->
+      <div class="section">
+        <div class="section-title">Awards</div>
+        <div class="award-entry">
+          <div class="award-icon">🏆</div>
+          <div>
+            <div class="award-title">Intra KUET Programming Contest</div>
+            <div class="award-result">9th Place (Team) · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THESIS -->
+      <div class="section">
+        <div class="section-title">Thesis</div>
+        <div class="custom-entry">
+          <div class="custom-label">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Research
+          </div>
+          <div class="custom-title">Cross-Platform GNN Based Malicious Website Detection Using System Provenance Graphs</div>
+        </div>
+      </div>
+
+      <!-- COMPETITIVE PROGRAMMING -->
+      <div class="section">
+        <div class="section-title">Competitive Programming</div>
+        <div class="custom-entry">
+          <div class="custom-label">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Codeforces
+          </div>
+          <div class="custom-desc">Solved 132 problems</div>
+        </div>
+        <div class="custom-entry">
+          <div class="custom-label">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            LeetCode
+          </div>
+          <div class="custom-desc">Solved 72 problems</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
