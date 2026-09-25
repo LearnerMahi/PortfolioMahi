@@ -206,7 +206,7 @@ export function Hero() {
 
               <motion.div
                 animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.45 }}
                 className="absolute -bottom-4 -left-4 bg-bg-card border border-border rounded-xl px-3 py-2 shadow-xl"
               >
                 <p className="text-xs text-[#8b949e]">Problems Solved</p>
