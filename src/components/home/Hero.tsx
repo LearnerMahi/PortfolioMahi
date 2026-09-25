@@ -201,7 +201,7 @@ export function Hero() {
                 className="absolute -top-4 -right-4 bg-bg-card border border-border rounded-xl px-3 py-2 shadow-xl"
               >
                 <p className="text-xs text-[#8b949e]">CGPA</p>
-                <p className="text-lg font-bold text-accent-blue">3.35</p>
+                <p className="text-lg font-bold text-accent-blue">3.37</p>
               </motion.div>
 
               <motion.div
