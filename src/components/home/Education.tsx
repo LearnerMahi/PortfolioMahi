@@ -8,9 +8,9 @@ const education = [
     institution: 'Khulna University of Engineering & Technology',
     short: 'KUET',
     period: '2022 – 2026',
-    gpa: 'CGPA: 3.35',
+    gpa: 'CGPA: 3.37',
     location: 'Khulna, Bangladesh',
-    highlight: 'Thesis: Malicious Website Detection via System Provenance Analysis',
+    highlight: 'Thesis: Comparative Evaluation of Graph Neural Networks and Classical Machine Learning for Explainable, Cross-Platform Malicious Website Detection Using System Provenance Graphs',
     color: 'blue',
   },
   {
